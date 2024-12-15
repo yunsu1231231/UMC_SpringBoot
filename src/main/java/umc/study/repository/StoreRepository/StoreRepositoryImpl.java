@@ -15,6 +15,7 @@ public class StoreRepositoryImpl implements StoreRepositoryCustom{
     private final JPAQueryFactory jpaQueryFactory;
     private final QStores store = QStores.stores;
 
+    // Stores 엔티티의 name 속성, score 속성 기준 조회
     @Override
     public List<Stores> dynamicQueryWithBooleanBuilder(String name, Float score) {
         BooleanBuilder predicate = new BooleanBuilder();
@@ -27,6 +28,7 @@ public class StoreRepositoryImpl implements StoreRepositoryCustom{
             predicate.and(store.score.goe(4.0f));
         }
 
+        // 최종 쿼리 실행
         return jpaQueryFactory
                 .selectFrom(store)
                 .where(predicate)
