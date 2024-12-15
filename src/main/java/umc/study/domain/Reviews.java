@@ -5,6 +5,7 @@ import lombok.*;
 import umc.study.domain.common.BaseEntity;
 import umc.study.domain.enums.Gender;
 import umc.study.domain.enums.Rating;
+import umc.study.domain.mapping.User_Missions;
 
 @Entity
 @Getter
@@ -33,4 +34,8 @@ public class Reviews extends BaseEntity{
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "store_id")
     private Stores stores;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "mission_id") // 외래키 이름
+    private User_Missions missions;
 }

@@ -4,13 +4,13 @@ import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import umc.study.domain.Users;
-import umc.study.repository.UsersRepository;
+import umc.study.repository.UserProfileRepository;
 
 @Service
 @RequiredArgsConstructor
 public class MemberQueryServiceImpl implements MemberQueryService{
 
-    private final UsersRepository memberRepository;
+    private final UserProfileRepository memberRepository;
 
     @Override
     public Optional<Users> findMember(Long id) {
