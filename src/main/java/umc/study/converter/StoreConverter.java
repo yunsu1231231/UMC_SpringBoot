@@ -1,12 +1,12 @@
 package umc.study.converter;
 
-import umc.study.domain.Missions;
-import umc.study.domain.Regions;
-import umc.study.domain.Stores;
-import umc.study.domain.Users;
+import umc.study.domain.*;
 import umc.study.domain.enums.MemberStatus;
 import umc.study.domain.mapping.User_Missions;
+import umc.study.web.dto.ReviewRequestDTO;
 import umc.study.web.dto.StoreRequestDTO;
+
+import java.util.List;
 
 public class StoreConverter {
 
@@ -38,5 +38,12 @@ public class StoreConverter {
                 .build();
     }
     */
+
+    public static ReviewRequestDTO.ReviewPreViewDTO reviewPreViewDTO(Reviews review){
+        return null;
+    }
+    public static ReviewRequestDTO.ReviewPreViewListDTO reviewPreViewListDTO(List<Reviews> reviewList){
+        return null;
+    }
 
 }

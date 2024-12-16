@@ -11,9 +11,9 @@ public class StoreRequestDTO {
     @Setter
     @NoArgsConstructor
     public static class StoreDTO {
-        private String name;  // Store 이름
-        private String address;    // Store 주소
-        private String region;     // 지역 이름
+        private String name;
+        private String address;
+        private String region;
     }
 
     @Getter
