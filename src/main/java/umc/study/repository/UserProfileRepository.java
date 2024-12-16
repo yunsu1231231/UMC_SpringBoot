@@ -8,7 +8,7 @@ import java.util.Optional;
 
 @Repository
 public interface UserProfileRepository extends JpaRepository<Users, Long> {
-    Optional<Users> findFirstByOrderByUserIdAsc();
+    Optional<Users> findFirstByOrderByIdAsc();
 }
 
 

@@ -40,7 +40,10 @@ public enum ErrorStatus implements BaseErrorCode {
     REGION_NOT_FOUND(HttpStatus.NOT_FOUND, "HOME4001", "지역 정보를 찾을 수 없습니다."),
 
     // Validation Errors
-    MISSING_REQUEST_FIELD(HttpStatus.BAD_REQUEST, "VALIDATION4001", "필수 필드가 누락되었습니다.");
+    MISSING_REQUEST_FIELD(HttpStatus.BAD_REQUEST, "VALIDATION4001", "필수 필드가 누락되었습니다."),
+
+    // Food Errors
+    FOOD_CATEGORY_NOT_FOUND(HttpStatus.NOT_FOUND, "FOOD4001", "음식 카테고리를 찾을 수 없습니다.");
 
 
     private final HttpStatus httpStatus;

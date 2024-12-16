@@ -7,6 +7,8 @@ import umc.study.domain.enums.Gender;
 import umc.study.domain.enums.MemberStatus;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
@@ -36,9 +38,16 @@ public class Users extends BaseEntity {
 
     private String address;
 
+    // @ElementCollection
+    // private List<String> memberPreferList;
+
     @Enumerated(EnumType.STRING)
     @Column(columnDefinition = "VARCHAR(15) DEFAULT 'ACTIVE'")
     private MemberStatus status;
+
+    @OneToMany(mappedBy = "users", cascade = CascadeType.ALL)
+    private List<User_Preferences> memberPreferList = new ArrayList<>();
+
 
     // private String specAddress;
 

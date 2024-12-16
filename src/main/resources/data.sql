@@ -24,7 +24,21 @@ VALUES
 
 INSERT INTO reviews (id, description, rating, store_id, user_id, photo_url, created_at, updated_at)
 VALUES
-    (1, '너무 좋아요!', 5.0, 1, NULL, NULL, NOW(), NOW()),
-    (2, '분위기 짱~', 3.0, 1, NULL, NULL, NOW(), NOW()),
-    (3, '서비스가 좋습니다', 4.8, 2, NULL, NULL, NOW(), NOW()),
-    (4, '음식이 맛있고 사장님이 친절해요', 4.5, 3, NULL, NULL, NOW(), NOW());
+    (1111, '너무 좋아요!', 5.0, 1, NULL, 'https://example.com/default_image1.jpg', NOW(), NOW()),
+    (1121, '분위기 짱~', 3.0, 1, NULL, 'https://example.com/default_image2.jpg', NOW(), NOW()),
+    (1131, '서비스가 좋습니다', 4.8, 2, NULL, 'https://example.com/default_image3.jpg', NOW(), NOW()),
+    (1141, '음식이 맛있고 사장님이 친절해요', 4.5, 3, NULL, 'https://example.com/default_image4.jpg', NOW(), NOW());
+
+INSERT INTO user_preferences (id, favorite_food, created_at, updated_at)
+VALUES
+    (1111, '중식', NOW(), NOW()),
+    (1112, '양식', NOW(), NOW()),
+    (1113, '치킨', NOW(), NOW()),
+    (1114, '분식', NOW(), NOW()),
+    (1115, '고기/구이', NOW(), NOW()),
+    (1116, '도시락', NOW(), NOW()),
+    (1117, '야식', NOW(), NOW()),
+    (1118, '패스트푸드', NOW(), NOW()),
+    (1119, '디저트', NOW(), NOW()),
+    (1120, '아시안푸드', NOW(), NOW());
+

@@ -33,8 +33,8 @@ public class MissionServiceImpl implements MissionService {
     public Stores createStore(StoreRequestDTO.StoreDTO request) {
 
         // Region 객체 조회 또는 생성
-        Regions region = regionRepository.findByName(request.getRegion())
-                .orElse(Regions.builder().region_name(request.getRegion()).build());
+        Regions region = regionRepository.findByRegionName(request.getRegion())
+                .orElse(Regions.builder().regionName(request.getRegion()).build());
 
         // Stores 객체 생성
         Stores store = StoreConverter.toStore(request, region);
@@ -65,7 +65,7 @@ public class MissionServiceImpl implements MissionService {
     public User_Missions challengeMission(StoreRequestDTO.MissionChallengeRequestDto requestDto) {
 
         // 1. 임의의 회원 정보 조회 (하드코딩)
-        Users user = userProfileRepository.findFirstByOrderByUserIdAsc()
+        Users user = userProfileRepository.findFirstByOrderByIdAsc()
                 .orElseThrow(() -> new IllegalStateException("No user found in the database"));
 
         // 2. 미션 정보 조회
