@@ -29,7 +29,7 @@ VALUES
     (1131, '서비스가 좋습니다', 4.8, 2, NULL, 'https://example.com/default_image3.jpg', NOW(), NOW()),
     (1141, '음식이 맛있고 사장님이 친절해요', 4.5, 3, NULL, 'https://example.com/default_image4.jpg', NOW(), NOW());
 
-INSERT INTO user_preferences (id, favorite_food, created_at, updated_at)
+INSERT INTO food_category (id, name, created_at, updated_at)
 VALUES
     (1111, '중식', NOW(), NOW()),
     (1112, '양식', NOW(), NOW()),
@@ -42,3 +42,12 @@ VALUES
     (1119, '디저트', NOW(), NOW()),
     (1120, '아시안푸드', NOW(), NOW());
 
+INSERT INTO users (username, email, password, gender, inactive_date, address, status)
+VALUES
+    ('john_doe', 'john.doe@example.com', 'password123', 'MALE', NULL, '123 Main St, Cityville', 'ACTIVE'),
+    ('jane_smith', 'jane.smith@example.com', 'password456', 'FEMALE', NULL, '456 Oak Ave, Townsville', 'ACTIVE');
+
+INSERT INTO user_missions (missions_completed, is_points_awarded, mission_id, user_id, completed_at, started_at, is_completed)
+VALUES
+    (5, true, 1, 3, '2024-12-17 10:00:00', '2024-12-10 08:00:00', 'COMPLETED'),
+    (3, false, 2, 4, '2024-12-15 14:30:00', '2024-12-10 09:00:00', 'CHALLENGING');

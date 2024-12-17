@@ -40,7 +40,7 @@ public class MemberConverter {
             case 2:
                 gender = Gender.FEMALE;
                 break;
-            case 3:
+            case 3: 
                 gender = Gender.NONE;
                 break;
         }

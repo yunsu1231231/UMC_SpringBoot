@@ -4,5 +4,5 @@ import umc.study.domain.Reviews;
 import umc.study.web.dto.ReviewRequestDTO;
 
 public interface ReviewService {
-    Reviews addReview(ReviewRequestDTO.ReviewRequestDto reviewRequestDto, String token);
+    Reviews addReview(ReviewRequestDTO.ReviewRequestDto reviewRequestDto);
 }

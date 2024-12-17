@@ -24,10 +24,10 @@ public class Users extends BaseEntity {
     @Column(nullable = false, length = 20)
     private String username;
 
-    @Column(nullable = false, length = 50)
+    @Column(length = 50, nullable = true) // mysql null 가능하게 일단 설정
     private String email;
 
-    @Column(nullable = false, length = 40)
+    @Column(nullable = false, length = 40) // mysql null 가능하게 일단 설정
     private String password;
 
     @Enumerated(EnumType.STRING)
