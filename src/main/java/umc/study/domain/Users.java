@@ -1,12 +1,15 @@
 package umc.study.domain;
 
-import jakarta.persistence.*;
-import lombok.*;
+
 import umc.study.domain.common.BaseEntity;
 import umc.study.domain.enums.Gender;
 import umc.study.domain.enums.MemberStatus;
 
+import jakarta.persistence.*;
+import lombok.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
@@ -22,10 +25,10 @@ public class Users extends BaseEntity {
     @Column(nullable = false, length = 20)
     private String username;
 
-    @Column(nullable = false, length = 50)
+    @Column(length = 50, nullable = true) // mysql null 가능하게 일단 설정
     private String email;
 
-    @Column(nullable = false, length = 40)
+    @Column(nullable = false, length = 40) // mysql null 가능하게 일단 설정
     private String password;
 
     @Enumerated(EnumType.STRING)
@@ -36,9 +39,16 @@ public class Users extends BaseEntity {
 
     private String address;
 
+    // @ElementCollection
+    // private List<String> memberPreferList;
+
     @Enumerated(EnumType.STRING)
     @Column(columnDefinition = "VARCHAR(15) DEFAULT 'ACTIVE'")
     private MemberStatus status;
+
+    @OneToMany(mappedBy = "users", cascade = CascadeType.ALL)
+    private List<User_Preferences> memberPreferList = new ArrayList<>();
+
 
     // private String specAddress;
 

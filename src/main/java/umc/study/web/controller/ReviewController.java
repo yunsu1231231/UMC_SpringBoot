@@ -21,9 +21,12 @@ public class ReviewController {
 
     // 가게에 리뷰 추가하기 API
     @PostMapping("/add")
-    public ResponseEntity<Reviews> addReview(@RequestBody ReviewRequestDTO.ReviewRequestDto reviewRequestDto,
-                                             @RequestHeader("Authorization") String token) {
-        Reviews addedReview = reviewService.addReview(reviewRequestDto, token);
+    public ResponseEntity<Reviews> addReview(@RequestBody ReviewRequestDTO.ReviewRequestDto reviewRequestDto
+                                             /*@RequestHeader("Authorization") String token*/)
+    {
+        System.out.println("확인");
+        System.out.println(reviewRequestDto);
+        Reviews addedReview = reviewService.addReview(reviewRequestDto/*token*/);
         return ResponseEntity.ok(addedReview);
     }
 

@@ -14,7 +14,7 @@ import umc.study.web.dto.TempResponse.TempTestDTO;
 @RestController
 @RequestMapping("/temp")
 @RequiredArgsConstructor
-public class    TempRestController {
+public class TempRestController {
 
     private final TempQueryService tempQueryService;
 

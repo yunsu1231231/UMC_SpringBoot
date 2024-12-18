@@ -12,7 +12,7 @@ import java.util.Optional;
 @Repository
 public interface RegionRepository extends JpaRepository<Regions, Long> {
     // Regions 엔티티의 name 속성을 기준으로 데이터를 조회, 이름이 name 일치하는 행 반환
-    Optional<Regions> findByName(String name);
+    Optional<Regions> findByRegionName(String name);
 }
 
 

@@ -33,8 +33,13 @@ public class MissionServiceImpl implements MissionService {
     public Stores createStore(StoreRequestDTO.StoreDTO request) {
 
         // Region 객체 조회 또는 생성
-        Regions region = regionRepository.findByName(request.getRegion())
-                .orElse(Regions.builder().region_name(request.getRegion()).build());
+        Regions region = regionRepository.findByRegionName(request.getRegion())
+                .orElse(Regions.builder().regionName(request.getRegion()).build());
+
+        // 먼저 Regions 객체를 저장 (저장되지 않은 상태일 경우)
+        if (region.getId() == null) {  // Regions 객체가 새로 생성되었을 경우
+            region = regionRepository.save(region); // 먼저 저장
+        }
 
         // Stores 객체 생성
         Stores store = StoreConverter.toStore(request, region);
@@ -65,12 +70,24 @@ public class MissionServiceImpl implements MissionService {
     public User_Missions challengeMission(StoreRequestDTO.MissionChallengeRequestDto requestDto) {
 
         // 1. 임의의 회원 정보 조회 (하드코딩)
-        Users user = userProfileRepository.findFirstByOrderByUserIdAsc()
+        Users user = userProfileRepository.findFirstByOrderByIdAsc()
                 .orElseThrow(() -> new IllegalStateException("No user found in the database"));
 
         // 2. 미션 정보 조회
+        System.out.println("Request Mission ID: " + requestDto.getMissionId());  // 미션 ID 출력
+        Missions mission = missionRepository.findById(requestDto.getMissionId())
+                .orElseThrow(() -> {
+                    System.out.println("Mission with ID " + requestDto.getMissionId() + " not found!");  // 미션이 없을 때 출력
+                    return new IllegalArgumentException("Mission not found");
+                });
+        System.out.println("Mission Found: " + mission);  // 미션 조회 결과 출력
+
+        /*
+        // 2. 미션 정보 조회
         Missions mission = missionRepository.findById(requestDto.getMissionId())
                 .orElseThrow(() -> new IllegalArgumentException("Mission not found"));
+
+        */
 
         // 3. User_Missions 객체 생성
         User_Missions userMission = StoreConverter.toUserMission(user, mission, requestDto);

@@ -20,8 +20,10 @@ public class Missions extends BaseEntity{
 
     private Long points_awarded;
 
+    /*
     @Column(nullable = false)
     private boolean completed;
+    */
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "store_id")

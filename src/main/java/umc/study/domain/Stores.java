@@ -7,6 +7,8 @@ import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+
+
 @Entity
 @Getter
 @Builder
@@ -24,7 +26,9 @@ public class Stores extends BaseEntity {
 
     private Float score;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+
+    // @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "region_id")
     private Regions region;
 
@@ -41,7 +45,7 @@ public class Stores extends BaseEntity {
                 ", name='" + name + '\'' +
                 ", address='" + address + '\'' +
                 ", score=" + score +
-                ", region=" + (region != null ? region.getRegion_name() : "N/A") + // region의 이름 출력
+                ", region=" + (region != null ? region.getRegionName() : "N/A") + // region의 이름 출력
                 '}';
     }
 }
