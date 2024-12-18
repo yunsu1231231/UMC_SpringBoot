@@ -23,7 +23,7 @@ public class StoreRequestDTO {
         private Long missionId;
         private Long userId;
         private String status;
-        private LocalDateTime startedAt;
+        // private LocalDateTime startedAt;
     }
 
     /*

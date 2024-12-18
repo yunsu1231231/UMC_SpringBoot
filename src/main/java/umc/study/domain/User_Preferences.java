@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 import lombok.*;
 import umc.study.domain.common.BaseEntity;
 
+
+
 @Entity
 @Getter
 @Builder
@@ -16,13 +18,15 @@ public class User_Preferences extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    // @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id")
     private Users users; // users 필드 선언
 
     @Getter
     @Setter
-    @ManyToOne(fetch = FetchType.LAZY)
+    // @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "category_id")
     private FoodCategory foodCategory;
 

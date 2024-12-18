@@ -20,7 +20,8 @@ public class Notifications extends BaseEntity{
     @Column(nullable = false, length = 60)
     private String notification_content;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    // @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id")
     private Users users;
 

@@ -7,6 +7,8 @@ import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+
+
 @Entity
 @Getter
 @Builder
@@ -24,7 +26,9 @@ public class Stores extends BaseEntity {
 
     private Float score;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+
+    // @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "region_id")
     private Regions region;
 

@@ -23,7 +23,8 @@ public class Inquires extends BaseEntity{
     @Column(nullable = false, length = 40)
     private String image;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    // @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id")
     private Users users;
 }

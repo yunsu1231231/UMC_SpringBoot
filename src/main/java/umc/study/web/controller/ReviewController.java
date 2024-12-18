@@ -19,6 +19,7 @@ public class ReviewController {
     public ResponseEntity<Reviews> addReview(@RequestBody ReviewRequestDTO.ReviewRequestDto reviewRequestDto
                                              /*@RequestHeader("Authorization") String token*/)
     {
+        System.out.println("확인");
         System.out.println(reviewRequestDto);
         Reviews addedReview = reviewService.addReview(reviewRequestDto/*token*/);
         return ResponseEntity.ok(addedReview);

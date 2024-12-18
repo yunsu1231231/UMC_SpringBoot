@@ -29,6 +29,8 @@ public class ReviewServiceImpl implements ReviewService {
     public Reviews addReview(ReviewRequestDTO.ReviewRequestDto reviewRequestDto /*String token*/) {
         // 토큰 인증 및 유효성 검증 로직 추가 필요
 
+        System.out.println("1");
+
         // 1. 임의의 회원 정보 조회 (하드코딩 방식)
         Users user = userProfileRepository.findFirstByOrderByIdAsc()
                 .orElseThrow(() -> new IllegalStateException("No user found in the database"));

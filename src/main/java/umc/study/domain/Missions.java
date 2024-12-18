@@ -2,8 +2,8 @@ package umc.study.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.annotations.DynamicInsert;
-import org.hibernate.annotations.DynamicUpdate;
+//import org.hibernate.annotations.DynamicInsert;
+//import org.hibernate.annotations.DynamicUpdate;
 import umc.study.domain.common.BaseEntity;
 
 @Entity
@@ -11,8 +11,8 @@ import umc.study.domain.common.BaseEntity;
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
-@DynamicUpdate
-@DynamicInsert
+//@DynamicUpdate
+//@DynamicInsert
 public class Missions extends BaseEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,7 +23,8 @@ public class Missions extends BaseEntity{
 
     private Long points_awarded;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    // @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "store_id")
     private Stores stores;
 }
