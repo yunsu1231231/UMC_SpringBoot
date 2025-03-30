@@ -6,6 +6,7 @@ import umc.study.domain.common.BaseEntity;
 
 @Entity
 @Getter
+@Setter
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
@@ -18,6 +19,9 @@ public class Missions extends BaseEntity{
     private String mission_description;
 
     private Long points_awarded;
+
+    @Column(nullable = false)
+    private boolean completed;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "store_id")
